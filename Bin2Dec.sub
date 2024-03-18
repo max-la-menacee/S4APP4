@@ -1,0 +1,19 @@
+********************************************************************************
+*
+*			Dec2Bin - Decimal to binary
+*
+********************************************************************************
+*
+* [PARAMETERS]
+*
+* N=3	= number of bits for the conversion;
+* Vhigh[V] = logic levels;
+*
+********************************************************************************
+.subckt Bin2Dec in0 in1 in2 out params: vhigh=1
+Rin out 0 1M
+C1 in0 0 1f
+C2 in1 0 1f
+C3 in2 0 1f
+B1 out 0 V=buf(V(in0)/vhigh)+buf(V(in1)/vhigh)*(2**1)+buf(V(in2)/vhigh)*(2**2)
+.ends Dec2Bin

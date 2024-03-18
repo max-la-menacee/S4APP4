@@ -1,0 +1,31 @@
+Circuit: * C:\Users\max_l\Documents\GI\S4\APP4\Prob\S4iAPP4_prob\nand_test.asc
+
+Direct Newton iteration for .op point succeeded.
+
+t1: time=3.01842e-009 at 3.01842e-009
+t2: time=3.15029e-009 at 3.15029e-009
+t3: time=2.09261e-009 at 2.09261e-009
+t4: time=2.01286e-009 at 2.01286e-009
+transition_up: abs(t2-t1)=1.31869e-010
+transition_down: abs(t4-t3)=7.97496e-011
+
+Measurement "ratio" FAIL'ed
+
+
+Date: Mon Mar 18 13:24:31 2024
+Total elapsed time: 0.283 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 2586
+traniter = 2581
+tranpoints = 1244
+accept = 1177
+rejected = 67
+matrix size = 8
+fillins = 0
+solver = Normal
+Matrix Compiler1: 264 bytes object code size  0.1/0.1/[0.1]
+Matrix Compiler2: off  [0.1]/0.1/0.1
+

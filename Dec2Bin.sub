@@ -1,0 +1,23 @@
+********************************************************************************
+*
+*			Dec2Bin - Decimal to binary
+*
+********************************************************************************
+*
+* [PARAMETERS]
+*
+* N=3	= number of bits for the conversion;
+* Vhigh[V] = logic levels;
+*
+*B3 Q[2] 0 V=u(int(V(in)/2**2) - int(V(in) / 2**3)*2**2)*vhigh
+
+********************************************************************************
+.subckt Dec2Bin in Q0 Q1 Q2 params: vhigh=1
+Rin in 0 10M
+R1 Q0 0 10M
+R2 Q1 0 10M
+R3 Q2 0 10M
+B1 Q0 0 V=u(int(V(in)/2**0) - int(V(in) / 2**1)*2**1)*vhigh
+B2 Q1 0 V=u(int(V(in)/2**1) - int(V(in) / 2**2)*2**1)*vhigh
+B3 Q2 0 V=u(int(V(in)/2**2) - int(V(in) / 2**3)*2**2)*vhigh
+.ends Dec2Bin
