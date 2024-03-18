@@ -1,4 +1,4 @@
-* C:\Users\max_l\Documents\GI\S4\APP4\Prob\S4iAPP4_prob\nand_test.asc
+* Z:\home\olivier\projects\S4APP4\nand_test.asc
 V1 vdd 0 {vv}
 V2 b 0 PULSE(0 {vv} 1000p 1p 1p 2000p 4000p 5)
 XX9 a out vdd 0 b nand params: NAND ll=180n wn={nnw} wp={nnw*mp}
@@ -9,15 +9,15 @@ C1 out 0 1f
 .subckt nand in1 Q vdd vss in2
 M1 vdd in1 Q vdd PMOS l={ll} w={wp} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
 M3 vdd in2 Q vdd PMOS l={ll} w={wp} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
-M4 P001 in2 vss vss NMOS l={ll} w={2*{wn}} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
-M2 Q in1 P001 vss NMOS l={ll} w={2*{wn}} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+M2 Q in1 P001 vss NMOS l={ll} w={wn*2} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+M4 P001 in2 vss vss NMOS l={ll} w={wn*2} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
 .lib BU_180nm.lib
 .ends nand
 
 .model NMOS NMOS
 .model PMOS PMOS
-.lib C:\Users\max_l\OneDrive\Documents\LTspiceXVII\lib\cmp\standard.mos
-.param vv=1.8 nnw=1*180n mp=2.22
+.lib C:\users\olivier\Documents\LTspiceXVII\lib\cmp\standard.mos
+.param vv=1.8 nnw=180n mp=2.21
 .lib BU_180nm.lib
 .tran 0 10000p 0 10p
 .meas tran t1 find time when v(out)=vv*0.1 rise 1
