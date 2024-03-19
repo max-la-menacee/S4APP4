@@ -1,0 +1,33 @@
+Circuit: * C:\Users\max_l\Documents\GI\S4\APP4\Prob\S4iAPP4_prob\xor_test.asc
+
+Warning: Pd = 2.889e-006 is less than W.
+Warning: Ps = 3.069e-006 is less than W.
+Direct Newton iteration for .op point succeeded.
+
+t1: time=1.00094e-009 at 1.00094e-009
+t2: time=1.14337e-009 at 1.14337e-009
+t3: time=1.00164e-009 at 1.00164e-009
+t4: time=2.01486e-009 at 2.01486e-009
+transition_up: abs(t2-t1)=1.42427e-010
+transition_down: abs(t4-t3)=1.01322e-009
+
+Measurement "ratio" FAIL'ed
+
+
+Date: Tue Mar 19 09:37:37 2024
+Total elapsed time: 0.188 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 2879
+traniter = 2856
+tranpoints = 1328
+accept = 1236
+rejected = 92
+matrix size = 13
+fillins = 0
+solver = Normal
+Matrix Compiler1:      55 opcodes  0.4/[0.2]/0.2
+Matrix Compiler2: off  [0.2]/0.3/0.2
+

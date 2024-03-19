@@ -1,0 +1,39 @@
+* C:\Users\max_l\Documents\GI\S4\APP4\Prob\S4iAPP4_prob\xor_test.asc
+V1 vdd 0 {vv}
+V2 b 0 PULSE(0 {vv} 1000p 1p 1p 2000p 4000p 5)
+XX2 a out vdd 0 b xor params: XOR ll=180n wn={nnw} wp={nnw*mp}
+V3 a 0 PULSE(0 {vv} 2000p 1p 1p 2000p 4000p 5)
+C1 out 0 1f
+
+* block symbol definitions
+.subckt xor in1 Q vdd vss in2
+M1 vdd in1N N001 vdd PMOS l={ll} w={2*wp} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
+M2 N001 in2 Q vdd PMOS l={ll} w={2*wp} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
+M3 N002 in1 vdd vdd PMOS l={ll} w={2*wp} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
+M4 Q in2N N002 vdd PMOS l={ll} w={2*wp} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
+M5 Q in1N N003 vss NMOS l={ll} w={2*wn} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+M6 N003 in2N vss vss NMOS l={ll} w={2*wn} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+M7 N004 in1 Q vss NMOS l={ll} w={2*wn} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+M8 vss in2 N004 vss NMOS l={ll} w={2*wn} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+M11 in1N in1 vss vss NMOS l={ll} w={wn} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+M12 vdd in1 in1N vdd PMOS l={ll} w={wp} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
+M13 in2N in2 vss vss NMOS l={ll} w={wn} ad={450n*{wn}} as={450n*{wn}} pd={900n+{wn}} ps={1080n+{wn}}
+M14 vdd in2 in2N vdd PMOS l={ll} w={wp} ad={450n*{wp}} as={450n*{wp}} pd={900n+{wp}} ps={1080n+{wp}}
+.lib BU_180nm.lib
+.ends xor
+
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\Users\max_l\OneDrive\Documents\LTspiceXVII\lib\cmp\standard.mos
+.param vv=1.8 nnw=5*180n mp=2.21
+.tran 0 10000p 0 10p
+.lib BU_180nm.lib
+.meas tran t1 find time when v(out)=vv*0.1 rise 1
+.meas tran t2 find time when v(out)=vv*0.9 rise 1
+.meas tran t3 find time when v(out)=vv*0.1 fall 1
+.meas tran t4 find time when v(out)=vv*0.9 fall 1
+.meas tran transition_up param abs(t2-t1)
+.meas tran transition_down param abs(t4-t3)
+.meas tran ratio param upslope/downslope
+.backanno
+.end

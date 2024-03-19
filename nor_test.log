@@ -1,31 +1,36 @@
 Circuit: * C:\Users\max_l\Documents\GI\S4\APP4\Prob\S4iAPP4_prob\nor_test.asc
 
+WARNING: Node X1:N002 is floating.
+WARNING: Node X1:N001 is floating.
+
+WARNING: Less than two connections to node X1:N002.  This node is used by M:X1:1.
+WARNING: Less than two connections to node X1:N001.  This node is used by M:X1:4.
 Direct Newton iteration for .op point succeeded.
 
-t1: time=2.06141e-009 at 2.06141e-009
-t2: time=2.16001e-009 at 2.16001e-009
-t3: time=3.15204e-009 at 3.15204e-009
-t4: time=3.07982e-009 at 3.07982e-009
-transition_up: abs(t2-t1)=9.85997e-011
-transition_down: abs(t4-t3)=7.22175e-011
+t1: time=3.01251e-009 at 3.01251e-009
+t2: time=4.10582e-009 at 4.10582e-009
+t3: time=1.09013e-009 at 1.09013e-009
+t4: time=1.02088e-009 at 1.02088e-009
+transition_up: abs(t2-t1)=1.09332e-009
+transition_down: abs(t4-t3)=6.92476e-011
 
 Measurement "ratio" FAIL'ed
 
 
-Date: Mon Mar 18 11:59:59 2024
-Total elapsed time: 0.178 seconds.
+Date: Tue Mar 19 09:36:02 2024
+Total elapsed time: 0.174 seconds.
 
 tnom = 27
 temp = 27
 method = modified trap
-totiter = 2597
-traniter = 2589
-tranpoints = 1244
-accept = 1177
-rejected = 67
-matrix size = 9
-fillins = 0
+totiter = 2692
+traniter = 2682
+tranpoints = 1274
+accept = 1201
+rejected = 73
+matrix size = 10
+fillins = 2
 solver = Normal
-Matrix Compiler1: 368 bytes object code size  0.1/0.1/[0.1]
-Matrix Compiler2: 743 bytes object code size  0.1/0.1/[0.1]
+Matrix Compiler1: 516 bytes object code size  0.2/0.1/[0.1]
+Matrix Compiler2: off  [0.1]/0.1/0.1
 
